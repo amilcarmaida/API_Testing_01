@@ -4,7 +4,85 @@
     <meta charset="UTF-8">
     <title>App JS-QA-01</title>
     <script type="application/javascript">
-        console.log("Hello Worlds!");
+        /**
+         *
+         * @param array of numbers
+         * @param index
+         * @returns {Max numbers}
+         */
+        var getMaxNumber = function(numbers, index){
+            if(index > 0){
+                return Math.max(numbers[index], getMaxNumber(numbers, index-1));
+            }
+            else{
+                return numbers[0];
+            }
+        }
+        /**
+         * @param a list of numbers, example 1,2,3,4
+         * @returns {The max number}
+         */
+        var calculateMaxNumber = function (){
+            var amountOfNumbers = arguments.length-1;
+            var maxNumber = getMaxNumber(arguments,amountOfNumbers);
+            return maxNumber;
+        }
+        console.log("The max number is: " + calculateMaxNumber(1,2,3,4,5,6,7,8,10));
+        /**
+         *
+         * @param array of numbers
+         * @param index
+         * @returns {The min numbers}
+         */
+        var getMinNumber = function(numbers, index){
+            if(index > 0){
+                return Math.min(numbers[index], getMinNumber(numbers, index-1));
+            }
+            else{
+                return numbers[0];
+            }
+        }
+        var calculateMinNumber = function(){
+            var amountOfNumbers = arguments.length-1;
+            var minNumber = getMinNumber(arguments, amountOfNumbers);
+            return minNumber;
+        }
+        console.log("The min number is: " + calculateMinNumber(1,2,3,4,5,6,7,8,10));
+
+        var getSumNumbers = function(numbers, index){
+            var sum;
+            if(index == 0){
+                sum = numbers[0];
+            }
+            else{
+                sum = numbers[index] + getSumNumbers(numbers,index-1);
+            }
+            return sum;
+        }
+        var calculateSum = function(){
+            var amountOfNumbers = arguments.length-1;
+            var sumNumbers = getSumNumbers(arguments,amountOfNumbers);
+            return sumNumbers;
+        }
+        console.log("The sum of the numbers is: "+calculateSum(1,2,3,4,5,6,7,8,9,10));
+
+        var getAvgNumbers= function(numbers,index){
+            var sum;
+            if(index == 0){
+                sum = numbers[0]
+            }
+            else{
+                sum = numbers[index]+getAvgNumbers(numbers,index-1);
+            }
+            return sum/(numbers.length);
+        }
+        var calculateAvgNumbers = function(){
+            var amountOfNumbers = arguments.length-1;
+            var avgNumbers = getAvgNumbers(arguments,amountOfNumbers);
+            return avgNumbers;
+        }
+        console.log("The average of numbers is: "+calculateAvgNumbers(1,2,3,4,5,6,7,8,9,10));
+
     </script>
     <script src="../JavaScript_App/main.js"></script>
 </head>
